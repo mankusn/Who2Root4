@@ -1,12 +1,9 @@
 import csv
 import os
 
-
+#gets a dictionary of statistics, team name is the key
 def import_csv_data(filename):
-
-
     reader = csv.DictReader(open(filename,'rU'))
-
     dictionary = {}
     for row in reader:
         key = row.pop('Tm')
@@ -17,6 +14,7 @@ def import_csv_data(filename):
     return dictionary
 def main():
 
+
     statistics={}
     nfl = import_csv_data("NFL_Pass_Offense.csv")
     print nfl
@@ -26,8 +24,8 @@ def main():
             name =str(file)[:-4].replace("_"," ")
             statistics[name] = import_csv_data(file)
 
-
-    print statistics["NFL Pass Offense"]
+    #Sample data access: statistics[#dataset][#teamname][#statistic]
+    print statistics["NFL Pass Defense"]["Denver Broncos"]['YdsL']
 
 
 if __name__ == '__main__':
