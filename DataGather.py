@@ -4,11 +4,11 @@ import operator
 
 #returns rank of specific team
 def find_rank(collection,team,stat,desc):
-    orderedList = ordered_statistics(collection,stat,desc)
+    orderedList = order_stats_by(collection,stat,desc)
     return [y[0] for y in orderedList].index(team) + 1
 
 #returns an ordered list of specific team-stat tuples
-def ordered_statistics(collection,stat,desc):
+def order_stats_by(collection,stat,desc):
     results = {}
     for team in collection.keys():
         entry = collection[team][stat]
@@ -25,6 +25,7 @@ def get_csv_data(filename):
             continue
         dictionary[key] = row
     return dictionary
+#imports data from csv files
 def import_data(statistics):
     for file in os.listdir('.'):
         if file.endswith(".csv"):
@@ -40,8 +41,8 @@ def main():
     #Sample data access: statistics[#statistical set][#teamname][#statistic]
     print statistics["NFL Pass Defense"]["Denver Broncos"]['YdsL']
 
-    print ordered_statistics(statistics["NFL Pass Defense"], "TD",False)
-    a= ordered_statistics(statistics["NFL Pass Offense"], "Yds",True)
+    print order_stats_by(statistics["NFL Pass Defense"], "TD",False)
+    a= order_stats_by(statistics["NFL Pass Offense"], "Yds",True)
     print a
     print find_rank(statistics["NFL Pass Offense"],"New England Patriots","Yds",True)
 
