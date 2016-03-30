@@ -1,0 +1,172 @@
+
+New England Patriots Pass Yards rank: 5
+New England Patriots Pass Yards Percentile: 15
+
+NFL Passing Yards
+=====================
+1. New Orleans Saints: 4970.0
+2. Arizona Cardinals: 4616.0
+3. Pittsburgh Steelers: 4603.0
+4. San Diego Chargers: 4591.0
+5. New England Patriots: 4587.0
+6. Atlanta Falcons: 4382.0
+7. New York Giants: 4347.0
+8. Baltimore Ravens: 4271.0
+9. Detroit Lions: 4212.0
+10. Jacksonville Jaguars: 4108.0
+11. Washington Redskins: 4095.0
+12. Philadelphia Eagles: 4087.0
+13. New York Jets: 4057.0
+14. Denver Broncos: 3970.0
+15. Cincinnati Bengals: 3923.0
+16. Oakland Raiders: 3879.0
+17. Tampa Bay Buccaneers: 3852.0
+18. Houston Texans: 3833.0
+19. Miami Dolphins: 3811.0
+20. Seattle Seahawks: 3790.0
+21. Cleveland Browns: 3782.0
+22. Indianapolis Colts: 3704.0
+23. Chicago Bears: 3663.0
+24. Carolina Panthers: 3589.0
+25. Tennessee Titans: 3503.0
+26. Green Bay Packers: 3503.0
+27. Dallas Cowboys: 3472.0
+28. Buffalo Bills: 3343.0
+29. San Francisco 49ers: 3316.0
+30. Kansas City Chiefs: 3255.0
+31. Minnesota Vikings: 2928.0
+32. St. Louis Rams: 2805.0
+
+TAMU Pass TD rank: 40
+TAMU Pass TD percentile: 31
+
+NCAA Passing TDs
+=====================
+1. W. Kentucky: 50.0
+2. Bowling Green: 47.0
+3. Baylor: 44.0
+4. California: 44.0
+5. Washington St.: 41.0
+6. Southern Miss: 40.0
+7. TCU: 39.0
+8. Texas Tech: 39.0
+9. Oklahoma: 38.0
+10. Mississippi: 35.0
+11. Clemson: 35.0
+12. Oklahoma St.: 35.0
+13. Oregon: 33.0
+14. Appalachian St.: 33.0
+15. Mississippi St.: 33.0
+16. N. Carolina: 31.0
+17. Middle Tenn. St.: 31.0
+18. Arkansas: 31.0
+19. W. Michigan: 30.0
+20. Stanford: 30.0
+21. Arizona St.: 30.0
+22. Memphis: 30.0
+23. USC: 30.0
+24. Cincinnati: 29.0
+25. Louisiana Tech: 28.0
+26. Georgia St.: 28.0
+27. Indiana: 27.0
+28. Arizona: 27.0
+29. Nebraska: 27.0
+30. West Virginia: 26.0
+31. Michigan St.: 26.0
+32. BYU: 26.0
+33. South Florida: 26.0
+34. N. Mex. St.: 26.0
+35. Tulsa: 25.0
+36. LA Monroe: 25.0
+37. Cent. Michigan: 25.0
+38. Notre Dame: 25.0
+39. Marshall: 25.0
+40. Texas A&M: 25.0
+41. Toledo: 24.0
+42. Colorado St.: 24.0
+43. Boise St.: 24.0
+44. Virginia Tech: 24.0
+45. Florida Intl.: 23.0
+46. Arkansas St.: 23.0
+47. UCLA: 23.0
+48. Florida St.: 22.0
+49. Northern Illinois: 22.0
+50. Alabama: 22.0
+51. Houston: 22.0
+52. San Jose St.: 21.0
+53. Troy: 21.0
+54. Utah St.: 21.0
+55. Pittsburgh: 21.0
+56. East Carolina: 21.0
+57. Louisville: 21.0
+58. UNLV: 21.0
+59. Virginia: 21.0
+60. Michigan: 21.0
+61. Wyoming: 20.0
+62. Rice: 20.0
+63. N.C. State: 20.0
+64. Fresno St.: 20.0
+65. Florida: 20.0
+66. Temple: 20.0
+67. Old Dominion: 20.0
+68. Penn St.: 20.0
+69. Syracuse: 19.0
+70. Ohio St.: 19.0
+71. SMU: 19.0
+72. Rutgers: 19.0
+73. UTEP: 18.0
+74. Miami (OH): 18.0
+75. Tulane: 18.0
+76. Miami (FL): 18.0
+77. UMass: 18.0
+78. Ohio: 18.0
+79. Akron: 18.0
+80. Duke: 18.0
+81. East. Michigan: 18.0
+82. Iowa St.: 18.0
+83. Purdue: 18.0
+84. Washington: 17.0
+85. S. Diego St.: 17.0
+86. Idaho: 17.0
+87. UTSA: 17.0
+88. South Carolina: 17.0
+89. Iowa: 17.0
+90. Tennessee: 17.0
+91. Ball St.: 17.0
+92. Illinois: 16.0
+93. Buffalo: 16.0
+94. Minnesota: 15.0
+95. Air Force: 15.0
+96. South Alabama: 15.0
+97. Maryland: 15.0
+98. Nevada: 15.0
+99. Utah: 15.0
+100. Texas St.: 15.0
+101. Wisconsin: 14.0
+102. Georgia Tech: 14.0
+103. Kansas St.: 14.0
+104. Georgia: 14.0
+105. La Lafayet.: 13.0
+106. Wake Forest: 13.0
+107. LSU: 13.0
+108. Colorado: 13.0
+109. UCF: 13.0
+110. Kansas: 12.0
+111. Charlotte: 12.0
+112. Florida Atlantic: 12.0
+113. North Texas: 12.0
+114. Hawaii: 12.0
+115. Vanderbilt: 11.0
+116. Auburn: 11.0
+117. Connecticut: 10.0
+118. Missouri: 10.0
+119. Army: 10.0
+120. Oregon St.: 10.0
+121. Kentucky: 10.0
+122. Texas: 9.0
+123. Kent St.: 9.0
+124. Navy: 9.0
+125. Northwestern: 8.0
+126. Boston Coll.: 8.0
+127. New Mexico: 6.0
+128. Georgia Southern: 4.0
