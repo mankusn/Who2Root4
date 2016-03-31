@@ -45,16 +45,25 @@ def main():
     statistics={}
     import_data(statistics)
 
-    #Sample data access: statistics[#statistical set][#teamname][#statistic]
-    # print statistics
+    #Direct data access: statistics[#statistical set][#teamname][#statistic]
 
-    #print order_stats_by(statistics["NFL Pass Defense"], "TD",False)
+
     team = FootballTeam.FootballTeam("New England Patriots", "NFL",statistics)
     team.get_rankings()
     print team.name
+
+    #Return Rank of specific stat
     print team.get_rank("Pass Offense", "Int")
+
+    #Return Stat value of specific stat
     print team.get_stat("Pass Offense", "Int")
+
+    #Return Percentile of specific stat
     print team.get_pct("Pass Offense", "Int")
+
+    team.print_percentiles("Pass Offense")
+    team.print_rankings("Pass Offense")
+    team.print_stats("Pass Defense")
     # ne_rank =  find_rank(statistics["NFL Pass Offense"],"New England Patriots","Yds",True)
     # ne_pct = percentile(statistics["NFL Pass Offense"], "New England Patriots","Yds", True)
     # print "\nNew England Patriots Pass Yards rank: " + str(ne_rank)

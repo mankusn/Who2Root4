@@ -1,18 +1,21 @@
 import DataGather as dg
 import copy
 
+#class to store stats from a Stat List i.e Pass Offense
 class StatKeeper:
-    def __init__(self,n):
+    def __init__(self,n,t):
         self.name = n
+        self.type = t
         self.list = {}
 
     def show(self):
-        print self.get
+        print self.name+" "+self.type
+        print "=========="
+        for stat in self.list.keys():
+            print stat+": "+ str(self.list[stat])
+
 
 class FootballTeam:
-
-
-
     def __init__(self,name,league,statistics):
         self.name = name
         self.league = league
@@ -21,42 +24,44 @@ class FootballTeam:
         self.percentiles = {}
         self.get_rankings()
 
+    def print_rankings(self,statList):
+        self.rankings[statList].show()
+
+    def print_percentiles(self,statList):
+        self.percentiles[statList].show()
+
+    def print_stats(self,statList):
+        print "All "+statList+" Statistics"
+        print "============================"
+        listName = self.league+" "+statList
+        for stat in self.statistics[listName][self.name].keys():
+            print stat+": "+self.statistics[listName][self.name][stat]
+
+    #Return Rank of specific stat
     def get_rank(self,statList,stat):
         return self.rankings[statList].list[stat]
-
+    #Return Stat value of specific stat
     def get_stat(self,statList,stat):
         statList = self.league +' '+ statList
         return self.statistics[statList][self.name][stat]
 
+    #Return Percentile of specific stat
     def get_pct(self,statList,stat):
         return self.percentiles[statList].list[stat]
 
-    def check_stats(self,statistics):
-        for statList in statistics.keys():
-            for team in statistics[statList]:
-                #print team
-                if type(statistics[statList][team]) is int:
-                    print 'FOUND'
-
+    #finds football team rank and percentiles
     def get_rankings(self):
-
+        #For every League stat category
         for statList in self.statistics.keys():
-
-            # print statList
             if statList.startswith(self.league):
                 name = statList.replace(self.league,'').strip()
-                # print "Name:"+name
-                statRank = StatKeeper(name)
-                statPct = StatKeeper(name)
+                statRank = StatKeeper(name,"Ranks")
+                statPct = StatKeeper(name,"Percentile")
+                #For every statistc for team
                 for stat in self.statistics[statList][self.name]:
-                    # print stat
                     rank = dg.find_rank(self.statistics[statList],self.name,stat,True)
                     pct = dg.percentile(self.statistics[statList],self.name,stat,True)
-                    # print rank
                     statRank.list[stat]=rank
                     statPct.list[stat] = pct
                 self.rankings[name]=statRank
                 self.percentiles[name] = statPct
-
-
-        #print self.rankings['Pass Offense'].show()
