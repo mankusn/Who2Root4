@@ -1,7 +1,10 @@
 import csv
 import os
 import operator
-import FootballTeam
+import FootballTeam as fb
+
+
+
 
 #returns what percentile team lies in
 def percentile(collection,team,stat,desc):
@@ -33,37 +36,39 @@ def get_csv_data(filename):
         dictionary[key] = row
     return dictionary
 #imports data from csv files
-def import_data(statistics):
-    for file in os.listdir('.'):
+def import_data(statistics,directory):
+    for file in os.listdir(directory):
         if file.endswith(".csv"):
             name =str(file)[:-4].replace("_"," ")
             statistics[name] = get_csv_data(file)
 
 def main():
 
+    nfl = fb.FootballLeague('.','NFL')
+    ncaa = fb.FootballLeague('.','NCAA')
+    nfl.get_team("New England Patriots").print_stats("Pass Offense")
+    ncaa.get_team("Texas A&M").print_stats("Pass Offense")
 
-    statistics={}
-    import_data(statistics)
 
     #Direct data access: statistics[#statistical set][#teamname][#statistic]
 
 
-    team = FootballTeam.FootballTeam("New England Patriots", "NFL",statistics)
-    team.get_rankings()
-    print team.name
-
-    #Return Rank of specific stat
-    print team.get_rank("Pass Offense", "Int")
-
-    #Return Stat value of specific stat
-    print team.get_stat("Pass Offense", "Int")
-
-    #Return Percentile of specific stat
-    print team.get_pct("Pass Offense", "Int")
-
-    team.print_percentiles("Pass Offense")
-    team.print_rankings("Pass Offense")
-    team.print_stats("Pass Defense")
+    # team = fb.FootballTeam("New England Patriots", "NFL",statistics)
+    # team.get_rankings()
+    # print team.name
+    #
+    # #Return Rank of specific stat
+    # print team.get_rank("Pass Offense", "Int")
+    #
+    # #Return Stat value of specific stat
+    # print team.get_stat("Pass Offense", "Int")
+    #
+    # #Return Percentile of specific stat
+    # print team.get_pct("Pass Offense", "Int")
+    #
+    # team.print_percentiles("Pass Offense")
+    # team.print_rankings("Pass Offense")
+    # team.print_stats("Pass Offense")
     # ne_rank =  find_rank(statistics["NFL Pass Offense"],"New England Patriots","Yds",True)
     # ne_pct = percentile(statistics["NFL Pass Offense"], "New England Patriots","Yds", True)
     # print "\nNew England Patriots Pass Yards rank: " + str(ne_rank)

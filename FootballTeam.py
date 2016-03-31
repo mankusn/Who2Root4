@@ -1,5 +1,27 @@
 import DataGather as dg
-import copy
+
+
+#A collection of teams and their stats in a league
+class FootballLeague:
+
+    def __init__(self, directory,league):
+        self.directory = directory
+        self.league = league
+        self.statistics = {}
+        dg.import_data(self.statistics,directory)
+        self.gather_teams()
+
+
+    def gather_teams(self):
+        self.leagueTeams = {}
+        for statList in self.statistics.keys():
+            if statList.startswith(self.league):
+                for name in self.statistics[statList].keys():
+                    team = FootballTeam(name, self.league,self.statistics)
+                    self.leagueTeams[name] = team
+
+    def get_team(self,team):
+        return self.leagueTeams[team]
 
 #class to store stats from a Stat List i.e Pass Offense
 class StatKeeper:
@@ -10,7 +32,7 @@ class StatKeeper:
 
     def show(self):
         print self.name+" "+self.type
-        print "=========="
+        print "==============="
         for stat in self.list.keys():
             print stat+": "+ str(self.list[stat])
 
