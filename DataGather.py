@@ -1,11 +1,12 @@
 import csv
 import os
 import operator
+import FootballTeam
 
 #returns what percentile team lies in
 def percentile(collection,team,stat,desc):
     rank = (find_rank(collection,team,stat,desc))
-    return (rank*100/len(collection))
+    return 100-(rank*100/len(collection))
 #returns rank of specific team
 def find_rank(collection,team,stat,desc):
     orderedList = order_stats_by(collection,stat,desc)
@@ -16,6 +17,8 @@ def order_stats_by(collection,stat,desc):
     results = {}
     for team in collection.keys():
         entry = collection[team][stat]
+        if entry == '':
+            entry = '0'
         results[team] = float(entry)
     return sorted(results.items(), key=operator.itemgetter(1),reverse=desc)
 
@@ -43,33 +46,40 @@ def main():
     import_data(statistics)
 
     #Sample data access: statistics[#statistical set][#teamname][#statistic]
-    #print statistics["NFL Pass Defense"]["Denver Broncos"]['YdsL']
+    # print statistics
 
     #print order_stats_by(statistics["NFL Pass Defense"], "TD",False)
-    ne_rank =  find_rank(statistics["NFL Pass Offense"],"New England Patriots","Yds",True)
-    ne_pct = percentile(statistics["NFL Pass Offense"], "New England Patriots","Yds", True)
-    print "\nNew England Patriots Pass Yards rank: " + str(ne_rank)
-    print "New England Patriots Pass Yards Percentile: " +str(ne_pct)+"\n"
-    a = order_stats_by(statistics["NFL Pass Offense"], "Yds",True)
-    count = 1
-    print "NFL Passing Yards"
-    print "====================="
-    for team in a:
-        print str(count)+'. '+team[0] +': '+ str(team[1])
-        count+=1
-    #print a[0]
+    team = FootballTeam.FootballTeam("New England Patriots", "NFL",statistics)
+    team.get_rankings()
+    print team.name
+    print team.get_rank("Pass Offense", "Int")
+    print team.get_stat("Pass Offense", "Int")
+    print team.get_pct("Pass Offense", "Int")
+    # ne_rank =  find_rank(statistics["NFL Pass Offense"],"New England Patriots","Yds",True)
+    # ne_pct = percentile(statistics["NFL Pass Offense"], "New England Patriots","Yds", True)
+    # print "\nNew England Patriots Pass Yards rank: " + str(ne_rank)
+    # print "New England Patriots Pass Yards Percentile: " +str(ne_pct)+"\n"
+    # a = order_stats_by(statistics["NFL Pass Offense"], "Yds",True)
+    # count = 1
+    # print "NFL Passing Yards"
+    # print "====================="
+    # for team in a:
+    #     print str(count)+'. '+team[0] +': '+ str(team[1])
+    #     count+=1
+    # #print a[0]
+    #
+    # tamu_rank =  find_rank(statistics["NCAA Pass Offense"],"Texas A&M","TD",True)
+    # tamu_pct = percentile(statistics["NCAA Pass Offense"], "Texas A&M","TD", True)
+    # print "\nTAMU Pass TD rank: " + str(tamu_rank)
+    # print "TAMU Pass TD percentile: " + str(tamu_pct)+"\n"
+    # b = order_stats_by(statistics["NCAA Pass Offense"], "TD",True)
+    # count = 1
+    # print "NCAA Passing TDs"
+    # print "====================="
+    # for team in b:
+    #     print str(count)+'. '+team[0] +': '+ str(team[1])
+    #     count+=1
 
-    tamu_rank =  find_rank(statistics["NCAA Pass Offense"],"Texas A&M","TD",True)
-    tamu_pct = percentile(statistics["NCAA Pass Offense"], "Texas A&M","TD", True)
-    print "\nTAMU Pass TD rank: " + str(tamu_rank)
-    print "TAMU Pass TD percentile: " + str(tamu_pct)+"\n"
-    b = order_stats_by(statistics["NCAA Pass Offense"], "TD",True)
-    count = 1
-    print "NCAA Passing TDs"
-    print "====================="
-    for team in b:
-        print str(count)+'. '+team[0] +': '+ str(team[1])
-        count+=1
 
 if __name__ == '__main__':
     main()
