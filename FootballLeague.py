@@ -11,7 +11,8 @@ class FootballLeague:
         dg.import_data(self.statistics,directory)
         self.gather_teams()
 
-
+    def is_in_league(self, team):
+        return team in self.leagueTeams
     def gather_teams(self):
         self.leagueTeams = {}
         for statList in self.statistics.keys():

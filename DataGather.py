@@ -1,7 +1,7 @@
 import csv
 import os
 import operator
-import FootballTeam as fb
+#import FootballLeague as fl
 
 
 
@@ -42,58 +42,3 @@ def import_data(statistics,directory):
             name =str(file)[:-4].replace("_"," ")
             statistics[name] = get_csv_data(file)
 
-def main():
-
-    nfl = fb.FootballLeague('.','NFL')
-    ncaa = fb.FootballLeague('.','NCAA')
-    nfl.get_team("New England Patriots").print_stats("Pass Offense")
-    ncaa.get_team("Texas A&M").print_stats("Pass Offense")
-
-
-    #Direct data access: statistics[#statistical set][#teamname][#statistic]
-
-
-    # team = fb.FootballTeam("New England Patriots", "NFL",statistics)
-    # team.get_rankings()
-    # print team.name
-    #
-    # #Return Rank of specific stat
-    # print team.get_rank("Pass Offense", "Int")
-    #
-    # #Return Stat value of specific stat
-    # print team.get_stat("Pass Offense", "Int")
-    #
-    # #Return Percentile of specific stat
-    # print team.get_pct("Pass Offense", "Int")
-    #
-    # team.print_percentiles("Pass Offense")
-    # team.print_rankings("Pass Offense")
-    # team.print_stats("Pass Offense")
-    # ne_rank =  find_rank(statistics["NFL Pass Offense"],"New England Patriots","Yds",True)
-    # ne_pct = percentile(statistics["NFL Pass Offense"], "New England Patriots","Yds", True)
-    # print "\nNew England Patriots Pass Yards rank: " + str(ne_rank)
-    # print "New England Patriots Pass Yards Percentile: " +str(ne_pct)+"\n"
-    # a = order_stats_by(statistics["NFL Pass Offense"], "Yds",True)
-    # count = 1
-    # print "NFL Passing Yards"
-    # print "====================="
-    # for team in a:
-    #     print str(count)+'. '+team[0] +': '+ str(team[1])
-    #     count+=1
-    # #print a[0]
-    #
-    # tamu_rank =  find_rank(statistics["NCAA Pass Offense"],"Texas A&M","TD",True)
-    # tamu_pct = percentile(statistics["NCAA Pass Offense"], "Texas A&M","TD", True)
-    # print "\nTAMU Pass TD rank: " + str(tamu_rank)
-    # print "TAMU Pass TD percentile: " + str(tamu_pct)+"\n"
-    # b = order_stats_by(statistics["NCAA Pass Offense"], "TD",True)
-    # count = 1
-    # print "NCAA Passing TDs"
-    # print "====================="
-    # for team in b:
-    #     print str(count)+'. '+team[0] +': '+ str(team[1])
-    #     count+=1
-
-
-if __name__ == '__main__':
-    main()
