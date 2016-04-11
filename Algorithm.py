@@ -20,6 +20,7 @@ def main():
     for num in range(0,3):
         print sorted(list2.items(), key=operator.itemgetter(1),reverse=True)[num]
 
+    print nfl.find_by_characteristic("Rush Defense")
 
 
 
