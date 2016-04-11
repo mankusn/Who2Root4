@@ -1,3 +1,5 @@
+import operator
+import numpy as np
 import DataGather as dg
 
 
@@ -13,13 +15,12 @@ class FootballLeague:
 
     def is_in_league(self, team):
         return team in self.leagueTeams
+
     def gather_teams(self):
         self.leagueTeams = {}
-        for statList in self.statistics.keys():
-            if statList.startswith(self.league):
-                for name in self.statistics[statList].keys():
-                    team = FootballTeam(name, self.league,self.statistics)
-                    self.leagueTeams[name] = team
+        for name in self.statistics[self.league +" Pass Offense"].keys():
+            team = FootballTeam(name, self.league,self.statistics)
+            self.leagueTeams[name] = team
 
     def get_team(self,team):
         return self.leagueTeams[team]
@@ -31,6 +32,8 @@ class StatKeeper:
         self.type = t
         self.list = {}
 
+    def values(self):
+        return self.list
     def show(self):
         print self.name+" "+self.type
         print "==============="
@@ -39,6 +42,9 @@ class StatKeeper:
 
 
 class FootballTeam:
+
+    wanted = ['Yds','Yds!','Cmp%','Cmp%!','Att/G','Att/G!','TD','TD!','Int','Int!',
+              'Att','Att!','Y/G','Y/G!','Rush/G','A/G!','Y/A!']
     def __init__(self,name,league,statistics):
         self.name = name
         self.league = league
@@ -46,6 +52,8 @@ class FootballTeam:
         self.rankings ={}
         self.percentiles = {}
         self.get_rankings()
+        self.get_stat_list()
+
 
     def print_rankings(self,statList):
         self.rankings[statList].show()
@@ -82,9 +90,32 @@ class FootballTeam:
                 statPct = StatKeeper(name,"Percentile")
                 #For every statistc for team
                 for stat in self.statistics[statList][self.name]:
-                    rank = dg.find_rank(self.statistics[statList],self.name,stat,True)
-                    pct = dg.percentile(self.statistics[statList],self.name,stat,True)
+                    if stat not in self.wanted:
+                        continue
+                    flag = True
+                    if(stat.endswith('!')):
+                        flag = False
+                    rank = dg.find_rank(self.statistics[statList],self.name,stat,flag)
+                    pct = dg.percentile(self.statistics[statList],self.name,stat,flag)
                     statRank.list[stat]=rank
                     statPct.list[stat] = pct
                 self.rankings[name]=statRank
                 self.percentiles[name] = statPct
+
+    def get_stat_list(self):
+        self.statList = []
+        for statList in sorted(self.percentiles.keys()):
+            for stat in sorted(self.percentiles[statList].list.keys()):
+                self.statList.append(self.percentiles[statList].list[stat])
+
+    def cosine(self,otherStatList):
+        dotProduct = np.dot(otherStatList,self.statList)
+        magnitude = np.linalg.norm(otherStatList) * np.linalg.norm(self.statList)
+        return dotProduct/magnitude
+
+    def find_match(self, otherLeague):
+        teamCos = {}
+        for teamName in otherLeague.leagueTeams.keys():
+            cos = self.cosine(otherLeague.leagueTeams[teamName].statList)
+            teamCos[teamName] = cos
+        return teamCos
