@@ -13,6 +13,7 @@ class FootballLeague:
         dg.import_data(self.statistics,directory)
         self.gather_teams()
 
+
     def is_in_league(self, team):
         return team in self.leagueTeams
 
@@ -25,16 +26,17 @@ class FootballLeague:
     def get_team(self,team):
         return self.leagueTeams[team]
 
- #wanted = ['Yds','Yds!','Cmp%','Cmp%!','Att/G','Att/G!','TD','TD!','Int','Int!',
-              #'Att','Att!','Y/G','Y/G!','Rush/G','A/G!','Y/A!']
-    def find_by_characteristic(self, characteristic):
-        print self.statistics
+    def characteristic_ranking(self, characteristic, eff, turn, excite):
         results = {}
-        pass_offense = ["Yds", "Cmp%", "Att/G", "TD", "Int!", "Att", "Y/G"]
-        rush_offense = ["Yds", "TD", "Att", "Y/G", "Rush/G"]
-        pass_defense = ["Yds!", "Cmp%!", "Att/G!", "TD!", "Int", "Att!", "Y/G!"]
-        rush_defense = ["Yds!", "TD!", "Att!", "Y/G!", "A/G!", "Y/A!"]
-        stats = []
+        wanted = ['Yds','Yds!','Cmp%','Cmp%!','Att/G','Att/G!','TD','TD!',
+              'Att','Att!','Y/G','Y/G!','Rush/G','A/G!','Y/A!','Sack!','1stD']
+        turnovers = ['Fmb','Fmb!','Int','Int!']
+        excitement = ['Sack','YdsL','Lng','4QC','GWD','Sk%']
+        pass_offense = self.statistics[self.league+" Pass Offense"]
+        rush_offense = self.statistics[self.league+" Rush Offense"]
+        pass_defense = self.statistics[self.league+" Pass Defense"]
+        rush_defense = self.statistics[self.league+" Rush Defense"]
+
         if characteristic == "Pass Offense":
             stats = pass_offense
         elif characteristic == "Pass Defense":
@@ -43,20 +45,25 @@ class FootballLeague:
             stats = rush_offense
         else:
             stats = rush_defense
-        if self.league == "NFL":
-           teams = self.leagueTeams.keys()
-           for team in teams:
-               t = self.get_team(team)
-               percentile_sum = 0.0
-               for stat in stats:
-                   team_stats = t.percentiles[characteristic].list
-                   percentile_sum += float(team_stats[stat])
-               average_percentile = percentile_sum/len(stats)
-               results[team] = average_percentile
-           print sorted(results.items(), key=operator.itemgetter(1),reverse=True)
 
-        else:
-           print "NCAA DOEEEE"
+        for team in stats.keys():
+            t = self.get_team(team)
+            percentile_sum = 0.0
+            for stat in stats[team]:
+                team_stats = t.percentiles[characteristic].list
+                change = float(team_stats[stat])
+                if stat in wanted and eff:
+                    change *=1.5
+                if stat in turnovers and turn:
+                    change*=1.5
+                if stat in excitement and excite:
+                    change*=1.5
+                percentile_sum += change
+            average_percentile = percentile_sum/len(stats)
+            results[team] = average_percentile
+
+        return sorted(results.items(), key=operator.itemgetter(1),reverse=True)
+
 
 
 #class to store stats from a Stat List i.e Pass Offense
@@ -77,8 +84,7 @@ class StatKeeper:
 
 class FootballTeam:
 
-    wanted = ['Yds','Yds!','Cmp%','Cmp%!','Att/G','Att/G!','TD','TD!','Int','Int!',
-              'Att','Att!','Y/G','Y/G!','Rush/G','A/G!','Y/A!']
+
     def __init__(self,name,league,statistics):
         self.name = name
         self.league = league
@@ -124,8 +130,6 @@ class FootballTeam:
                 statPct = StatKeeper(name,"Percentile")
                 #For every statistc for team
                 for stat in self.statistics[statList][self.name]:
-                    if stat not in self.wanted:
-                        continue
                     flag = True
                     if(stat.endswith('!')):
                         flag = False
@@ -138,9 +142,12 @@ class FootballTeam:
 
     def get_stat_list(self):
         self.statList = []
+        wanted = ['Yds','Yds!','Cmp%','Cmp%!','Att/G','Att/G!','TD','TD!','Int','Int!',
+              'Att','Att!','Y/G','Y/G!','Rush/G','A/G!','Y/A!']
         for statList in sorted(self.percentiles.keys()):
             for stat in sorted(self.percentiles[statList].list.keys()):
-                self.statList.append(self.percentiles[statList].list[stat])
+                if stat in wanted:
+                    self.statList.append(self.percentiles[statList].list[stat])
 
     def cosine(self,otherStatList):
         dotProduct = np.dot(otherStatList,self.statList)
@@ -152,7 +159,7 @@ class FootballTeam:
         for teamName in otherLeague.leagueTeams.keys():
             cos = self.cosine(otherLeague.leagueTeams[teamName].statList)
             teamCos[teamName] = cos
-        return teamCos
+        return sorted(teamCos.items(), key=operator.itemgetter(1),reverse=True)
 
 
 

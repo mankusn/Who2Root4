@@ -11,4 +11,4 @@ Download this repository
 
 Make sure numpy is installed and you are running python 2.7
 
-Run the Algorithm.py with the command `python Algorithm.py` to get a sample of our recommendations.
+Run the Algorithm.py with the command `python Algorithm.py` to get a sample of our recommendations and rankings.
