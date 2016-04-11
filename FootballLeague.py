@@ -46,6 +46,7 @@ class FootballLeague:
         else:
             stats = rush_defense
 
+
         for team in stats.keys():
             t = self.get_team(team)
             percentile_sum = 0.0
@@ -63,6 +64,7 @@ class FootballLeague:
             results[team] = average_percentile
 
         return sorted(results.items(), key=operator.itemgetter(1),reverse=True)
+
 
 
 
