@@ -28,10 +28,10 @@ class FootballLeague:
 
     def characteristic_ranking(self, characteristic, eff, turn, excite):
         results = {}
-        wanted = ['Yds','Yds!','Cmp%','Cmp%!','Att/G','Att/G!','TD','TD!',
+        efficiency = ['Yds','Yds!','Cmp%','Cmp%!','Att/G','Att/G!','TD','TD!',
               'Att','Att!','Y/G','Y/G!','Rush/G','A/G!','Y/A!','Sack!','1stD']
         turnovers = ['Fmb','Fmb!','Int','Int!']
-        excitement = ['Sack','YdsL','Lng','4QC','GWD','Sk%']
+        excitement = ['Sack','YdsL','Lng','4QC','GWD','Sk%','Int','Fmb']
         pass_offense = self.statistics[self.league+" Pass Offense"]
         rush_offense = self.statistics[self.league+" Rush Offense"]
         pass_defense = self.statistics[self.league+" Pass Defense"]
@@ -53,7 +53,7 @@ class FootballLeague:
             for stat in stats[team]:
                 team_stats = t.percentiles[characteristic].list
                 change = float(team_stats[stat])
-                if stat in wanted and eff:
+                if stat in efficiency and eff:
                     change *=1.5
                 if stat in turnovers and turn:
                     change*=1.5
