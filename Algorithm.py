@@ -18,6 +18,7 @@ def main():
 
 
     print nfl.find_by_characteristic("Rush Defense")
+    print ncaa.find_by_characteristic("Rush Defense")
 
 
 

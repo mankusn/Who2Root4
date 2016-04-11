@@ -43,20 +43,19 @@ class FootballLeague:
             stats = rush_offense
         else:
             stats = rush_defense
-        if self.league == "NFL":
-           teams = self.leagueTeams.keys()
-           for team in teams:
-               t = self.get_team(team)
-               percentile_sum = 0.0
-               for stat in stats:
-                   team_stats = t.percentiles[characteristic].list
-                   percentile_sum += float(team_stats[stat])
-               average_percentile = percentile_sum/len(stats)
-               results[team] = average_percentile
-           print sorted(results.items(), key=operator.itemgetter(1),reverse=True)
 
-        else:
-           print "NCAA DOEEEE"
+        teams = self.leagueTeams.keys()
+        for team in teams:
+          t = self.get_team(team)
+          percentile_sum = 0.0
+          for stat in stats:
+            team_stats = t.percentiles[characteristic].list
+            percentile_sum += float(team_stats[stat])
+          average_percentile = percentile_sum/len(stats)
+          results[team] = average_percentile
+        print sorted(results.items(), key=operator.itemgetter(1),reverse=True)
+
+
 
 
 #class to store stats from a Stat List i.e Pass Offense
