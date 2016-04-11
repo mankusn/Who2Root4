@@ -3,18 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="bd4d525e-cb23-4934-8ae6-62f5c60b9e94" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Algorithm.py" afterPath="$PROJECT_DIR$/Algorithm.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FootballLeague.py" afterPath="$PROJECT_DIR$/FootballLeague.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NCAA_Pass_Defense.csv" afterPath="$PROJECT_DIR$/NCAA_Pass_Defense.csv" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NCAA_Pass_Offense.csv" afterPath="$PROJECT_DIR$/NCAA_Pass_Offense.csv" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NCAA_Rush_Defense.csv" afterPath="$PROJECT_DIR$/NCAA_Rush_Defense.csv" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NCAA_Rush_Offense.csv" afterPath="$PROJECT_DIR$/NCAA_Rush_Offense.csv" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NFL_Pass_Defense.csv" afterPath="$PROJECT_DIR$/NFL_Pass_Defense.csv" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NFL_Pass_Offense.csv" afterPath="$PROJECT_DIR$/NFL_Pass_Offense.csv" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NFL_Rush_Defense.csv" afterPath="$PROJECT_DIR$/NFL_Rush_Defense.csv" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NFL_Rush_Offense.csv" afterPath="$PROJECT_DIR$/NFL_Rush_Offense.csv" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/Who2Root4.iml" afterPath="$PROJECT_DIR$/.idea/Who2Root4.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Who2Root4.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -60,8 +48,8 @@
       <file leaf-file-name="Algorithm.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Algorithm.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.46255508">
-              <caret line="14" column="59" selection-start-line="14" selection-start-column="59" selection-end-line="14" selection-end-column="59" />
+            <state vertical-scroll-proportion="0.33039647">
+              <caret line="10" column="41" selection-start-line="10" selection-start-column="41" selection-end-line="10" selection-end-column="41" />
               <folding>
                 <element signature="e#0#27#0" expanded="true" />
               </folding>
@@ -808,8 +796,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Algorithm.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.46255508">
-          <caret line="14" column="59" selection-start-line="14" selection-start-column="59" selection-end-line="14" selection-end-column="59" />
+        <state vertical-scroll-proportion="0.33039647">
+          <caret line="10" column="41" selection-start-line="10" selection-start-column="41" selection-end-line="10" selection-end-column="41" />
           <folding>
             <element signature="e#0#27#0" expanded="true" />
           </folding>
