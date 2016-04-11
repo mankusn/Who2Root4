@@ -1,0 +1,18 @@
+<!doctype html>
+<title>Who2Root4</title>
+<form action="/results" method="POST">
+ <p>
+     Recommendation for: <input type="text" name="Team"> in
+     <input type="radio" name="league" value="NFL">NFL</input>
+     <input type="radio" name="league" value="NCAA">NCAA</input>
+ </p>
+  <input type="submit" value="Results">
+</form>
+{%if titles%}
+    {% for title in titles.keys() %}
+      <h2>{{title}}</h2>
+        {% for result in titles[title]%}
+            <p>{{result}}</p>
+        {%endfor%}
+    {% endfor %}
+{%endif%}

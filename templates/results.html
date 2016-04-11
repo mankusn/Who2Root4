@@ -1,0 +1,10 @@
+<!doctype html>
+{% extends "layout.html" %}
+    {%block body%}
+        {% for title in titles.keys() %}
+          <h2>{{title}}</h2>
+            {% for result in titles[title]%}
+                <p>{{result}}</p>
+            {%endfor%}
+        {% endfor %}
+    {% endblock %}

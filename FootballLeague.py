@@ -159,6 +159,8 @@ class FootballTeam:
     def find_match(self, otherLeague):
         teamCos = {}
         for teamName in otherLeague.leagueTeams.keys():
+            if otherLeague.league == self.league and teamName ==self.name:
+                continue
             cos = self.cosine(otherLeague.leagueTeams[teamName].statList)
             teamCos[teamName] = cos
         return sorted(teamCos.items(), key=operator.itemgetter(1),reverse=True)
