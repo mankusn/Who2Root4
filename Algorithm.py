@@ -17,6 +17,7 @@ def main():
         print sorted(list.items(), key=operator.itemgetter(1),reverse=True)[num]
 
 
+    print nfl.find_by_characteristic("Rush Defense")
 
 
 

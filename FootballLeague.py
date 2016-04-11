@@ -25,6 +25,40 @@ class FootballLeague:
     def get_team(self,team):
         return self.leagueTeams[team]
 
+ #wanted = ['Yds','Yds!','Cmp%','Cmp%!','Att/G','Att/G!','TD','TD!','Int','Int!',
+              #'Att','Att!','Y/G','Y/G!','Rush/G','A/G!','Y/A!']
+    def find_by_characteristic(self, characteristic):
+        print self.statistics
+        results = {}
+        pass_offense = ["Yds", "Cmp%", "Att/G", "TD", "Int!", "Att", "Y/G"]
+        rush_offense = ["Yds", "TD", "Att", "Y/G", "Rush/G"]
+        pass_defense = ["Yds!", "Cmp%!", "Att/G!", "TD!", "Int", "Att!", "Y/G!"]
+        rush_defense = ["Yds!", "TD!", "Att!", "Y/G!", "A/G!", "Y/A!"]
+        stats = []
+        if characteristic == "Pass Offense":
+            stats = pass_offense
+        elif characteristic == "Pass Defense":
+            stats = pass_defense
+        elif characteristic == "Rush Offense":
+            stats = rush_offense
+        else:
+            stats = rush_defense
+        if self.league == "NFL":
+           teams = self.leagueTeams.keys()
+           for team in teams:
+               t = self.get_team(team)
+               percentile_sum = 0.0
+               for stat in stats:
+                   team_stats = t.percentiles[characteristic].list
+                   percentile_sum += float(team_stats[stat])
+               average_percentile = percentile_sum/len(stats)
+               results[team] = average_percentile
+           print sorted(results.items(), key=operator.itemgetter(1),reverse=True)
+
+        else:
+           print "NCAA DOEEEE"
+
+
 #class to store stats from a Stat List i.e Pass Offense
 class StatKeeper:
     def __init__(self,n,t):
@@ -119,3 +153,8 @@ class FootballTeam:
             cos = self.cosine(otherLeague.leagueTeams[teamName].statList)
             teamCos[teamName] = cos
         return teamCos
+
+
+
+
+
