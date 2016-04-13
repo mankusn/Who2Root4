@@ -58,7 +58,7 @@ class FootballLeague:
                 if stat in turnovers and turn:
                     change*=1.5
                 if stat in excitement and excite:
-                    change*=1.5
+                    change*=2
                 percentile_sum += change
             average_percentile = percentile_sum/len(stats)
             results[team] = average_percentile

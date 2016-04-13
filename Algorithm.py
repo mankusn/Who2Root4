@@ -16,40 +16,59 @@ def home():
 
 @app.route('/results', methods =['POST'])
 def algorithm(titles = {}):
-    titles = {}
     results1,results2 = [],[]
     nfl = fl.FootballLeague('.','NFL')
     ncaa = fl.FootballLeague('.', 'NCAA')
-    team=''
-    league =''
-    team = str(request.form['Team'])
 
-    league = str(request.form['league'])
+    choice = str(request.form['choice'])
 
-    if league == None:
-        flash('Please Select League')
-        return render_template('layout.html')
-    if team in nfl.leagueTeams:
-        searchLeague = nfl
-    elif team in ncaa.leagueTeams:
-        searchLeague = ncaa
+
+    if choice == 'choice1':
+        team = str(request.form['Team'])
+        league = str(request.form['league'])
+        if team in nfl.leagueTeams:
+            searchLeague = nfl
+        elif team in ncaa.leagueTeams:
+            searchLeague = ncaa
+        else:
+            flash('Oops! We don\'t know that team. Please enter another.')
+            return render_template('layout.html')
+
+        if league =='NCAA':
+            otherLeague = ncaa
+        elif league =='NFL':
+            otherLeague = nfl
+        list1 = searchLeague.get_team(team).find_match(otherLeague)
+
+
+        # results.append( "Top 3 Recommendations for New England Patriots: \n")
+        for num in range(0,3):
+            line = str(num+1)+'. '+str(list1[num][0])+' - '+str(list1[num][1])
+            results1.append( line)
+
+        title = "Top 3 Recommendations for "+team+" in "+league+": "
     else:
-        flash('Oops! We don\'t know that team. Please enter another.')
-        return render_template('layout.html')
+        league2 = str(request.form['league2'])
+        if league2 =='ncaa':
+            thisLeague = ncaa
+        elif league2 =='nfl':
+            thisLeague = nfl
+        choices = {
+            'excitingPassO':thisLeague.characteristic_ranking("Pass Offense",True,False,True),
+            'excitingRunO':thisLeague.characteristic_ranking("Rush Offense",True,False,True),
+            'excitingPassD':thisLeague.characteristic_ranking("Pass Defense",True,True,True),
+            'excitingRunD':thisLeague.characteristic_ranking("Rush Defense",True,True,True)
+        }
+        option = str(request.form['style'])
 
-    if league =='NCAA':
-        otherLeague = ncaa
-    elif league =='NFL':
-        otherLeague = nfl
-    list1 = searchLeague.get_team(team).find_match(otherLeague)
+        title = "Top 5: "
+        results = choices[option]
 
-
-    # results.append( "Top 3 Recommendations for New England Patriots: \n")
-    for num in range(0,3):
-        line = str(num+1)+'. '+str(list1[num][0])+' - '+str(list1[num][1])
-        results1.append( line)
-
-    title = "Top 3 Recommendations for "+team+" in "+league+": "
+        for num in range(0,5):
+            line = str(num+1)+'. '+str(results[num][0])
+            results2.append(line)
+        # flash("Need to complete this feature...")
+        return render_template('layout.html', title = title, results = results2)
 
     # results.append( "\nTop 5 NCAA Rush Defenses: ")
     # for num in range(0,5):
