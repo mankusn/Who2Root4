@@ -1,10 +1,16 @@
 <!doctype html>
-{% extends "layout.html" %}
+{% extends "index.html" %}
     {%block body%}
+    	<table class="table table-striped" style="border: 1px solid #eeeeee;">
         {% for title in titles.keys() %}
-          <h2>{{title}}</h2>
+        	<tr>
+        		<th>{{title}}</th>
+        	</tr>
             {% for result in titles[title]%}
-                <p>{{result}}</p>
+            <tr>
+                <td><h2>{{result}}</h2></td>
+            </tr>
             {%endfor%}
         {% endfor %}
+    	</table>
     {% endblock %}

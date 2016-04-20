@@ -12,7 +12,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return render_template('layout.html',titles = None)
+    return render_template('index.html',titles = None)
 
 @app.route('/results', methods =['POST'])
 def algorithm(titles = {}):
@@ -32,7 +32,7 @@ def algorithm(titles = {}):
             searchLeague = ncaa
         else:
             flash('Oops! We don\'t know that team. Please enter another.')
-            return render_template('layout.html')
+            return render_template('index.html')
 
         if league =='NCAA':
             otherLeague = ncaa
@@ -68,7 +68,7 @@ def algorithm(titles = {}):
             line = str(num+1)+'. '+str(results[num][0])
             results2.append(line)
         # flash("Need to complete this feature...")
-        return render_template('layout.html', title = title, results = results2)
+        return render_template('index.html', title = title, results = results2)
 
     # results.append( "\nTop 5 NCAA Rush Defenses: ")
     # for num in range(0,5):
@@ -86,7 +86,7 @@ def algorithm(titles = {}):
     # for num in range(0,5):
     #     results.append( str(num+1)+": "+str(nfl.characteristic_ranking("Pass Offense",False,False,True)[num][0])+'\n')
 
-    return render_template('layout.html', results = results1, title = title)
+    return render_template('index.html', results = results1, title = title)
 
 
 
