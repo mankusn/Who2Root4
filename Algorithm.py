@@ -45,7 +45,12 @@ def algorithm(titles = {}):
             results1.append( line)
 
         title = "Top 3 Recommendations for "+team+" in "+league+": "
+    elif str(request.form['style']) == "empty":
+        flash('Please select an option.')
+        return render_template('index.html')
     else:
+
+
         if league =='NCAA':
             thisLeague = ncaa
         elif league =='NFL':
