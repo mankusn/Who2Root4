@@ -20,12 +20,10 @@ def algorithm(titles = {}):
     nfl = fl.FootballLeague('.','NFL')
     ncaa = fl.FootballLeague('.', 'NCAA')
 
-    choice = str(request.form['choice'])
+    league = str(request.form['league'])
+    team = str(request.form['Team'])
 
-
-    if choice == 'choice1':
-        team = str(request.form['Team'])
-        league = str(request.form['league'])
+    if str(request.form['Team']) != '':
         if team in nfl.leagueTeams:
             searchLeague = nfl
         elif team in ncaa.leagueTeams:
@@ -48,10 +46,9 @@ def algorithm(titles = {}):
 
         title = "Top 3 Recommendations for "+team+" in "+league+": "
     else:
-        league2 = str(request.form['league'])
-        if league2 =='NCAA':
+        if league =='NCAA':
             thisLeague = ncaa
-        elif league2 =='NFL':
+        elif league =='NFL':
             thisLeague = nfl
         choices = {
             'excitingPassO':thisLeague.characteristic_ranking("Pass Offense",True,False,True),
