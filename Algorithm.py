@@ -48,10 +48,10 @@ def algorithm(titles = {}):
 
         title = "Top 3 Recommendations for "+team+" in "+league+": "
     else:
-        league2 = str(request.form['league2'])
-        if league2 =='ncaa':
+        league2 = str(request.form['league'])
+        if league2 =='NCAA':
             thisLeague = ncaa
-        elif league2 =='nfl':
+        elif league2 =='NFL':
             thisLeague = nfl
         choices = {
             'excitingPassO':thisLeague.characteristic_ranking("Pass Offense",True,False,True),

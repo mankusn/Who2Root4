@@ -25,7 +25,7 @@
         <h4>Which league would you like to root 4?</h4>
         <div class="input-group" style="margin:auto;">
           <label class="radio-inline">
-            <input type="radio" name="league" value="NFL" id="inlineRadio1"> NFL
+            <input type="radio" name="league" value="NFL" checked="checked" id="inlineRadio1"> NFL
           </label>
           <label class="radio-inline">
             <input type="radio" name="league" value="NCAA" id="inlineRadio2"> NCAA Football
@@ -79,14 +79,6 @@
       </div>
     </div>
   </div>
-    <div class="input-group">
-      <label class="radio-inline">
-        <input type="radio" name="league2" value="nfl" id="inlineRadio1"> NFL
-      </label>
-      <label class="radio-inline">
-        <input type="radio" name="league2" value="ncaa" id="inlineRadio2"> NCAA
-      </label>
-    </div><!-- /input-group -->
     <div class="flashmessage col-md-8 col-md-offset-2" style="min-height:100% width:80%">
       {% with messages = get_flashed_messages() %}
         {% if messages %}
