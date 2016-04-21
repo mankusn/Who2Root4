@@ -12,7 +12,8 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return render_template('layout.html',titles = None)
+
+    return render_template('layout.html',titles = None )
 
 @app.route('/results', methods =['POST'])
 def algorithm(titles = {}):
