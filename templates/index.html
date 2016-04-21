@@ -22,13 +22,13 @@
     </div>
     <div class="row">
       <div class="col-md-6 col-md-offset-3" style="text-align: center">
-        <div class="input-group">
-          <h4>Which league would you like to root 4?</h4>
+        <h4>Which league would you like to root 4?</h4>
+        <div class="input-group" style="margin:auto;">
           <label class="radio-inline">
             <input type="radio" name="league" value="NFL" id="inlineRadio1"> NFL
           </label>
           <label class="radio-inline">
-            <input type="radio" name="league" value="NCAA" id="inlineRadio2"> NCAA
+            <input type="radio" name="league" value="NCAA" id="inlineRadio2"> NCAA Football
           </label>
         </div><!-- /input-group -->
       </div><!-- /.col-lg-6 -->
@@ -37,12 +37,13 @@
     <div class="well">
     <div class="row">
       <div class="col-md-4 col-md-offset-4" style="text-align: center">
-        <input type="text" name="Team" class="biginput form-control" placeholder="What's Your Favorite Team?" aria-label="..." id="autocomplete">
+        <h4>What's your favorite team?</h3>
+        <input type="text" name="Team" class="biginput form-control" placeholder="Look up a team..." aria-label="..." id="autocomplete">
       </div>
     </div>
     <div class="row">
       <div class="col-md-2 col-lg-offset-5" style="text-align: center; padding-top:20px; padding-bottom:20px;">
-    	 <img src="{{ url_for('static', filename='or.jpg') }}" alt="OR">
+    	 <img src="{{ url_for('static', filename='or.png') }}" alt="OR">
       </div>
     </div>
     <!--<div class="row">
@@ -53,21 +54,21 @@
     <div class="row">
       <div class="col-md-6 col-md-offset-3" style="text-align: center">
         <h4>What style of play do you like?</h3>
-        <label class="checkbox-inline">
-          <input type="checkbox" id="inlineCheckbox1" name="style" value="excitingPassO"> Passing Offense
+        <label class="radio-inline">
+          <input type="radio" id="inlineRadio1" name="style" value="excitingPassO"> Passing Offense
         </label>
-        <label class="checkbox-inline">
-          <input type="checkbox" id="inlineCheckbox2" name="style" value="excitingPassD"> Passing Defense
+        <label class="radio-inline">
+          <input type="radio" id="inlineRadio2" name="style" value="excitingPassD"> Passing Defense
         </label>
       </div>
     </div>
     <div class="row">
       <div class="col-md-6 col-md-offset-3" style="text-align: center">
-        <label class="checkbox-inline">
-          <input type="checkbox" id="inlineCheckbox1" name="style" value="excitingRunO"> Rushing Offense
+        <label class="radio-inline">
+          <input type="radio" id="inlineRadio3" name="style" value="excitingRunO"> Rushing Offense
         </label>
-        <label class="checkbox-inline">
-          <input type="checkbox" id="inlineCheckbox2" name="style" value="excitingRunD"> Rushing Defense
+        <label class="radio-inline">
+          <input type="radio" id="inlineRadio4" name="style" value="excitingRunD"> Rushing Defense
         </label>
       </div>
     </div>
