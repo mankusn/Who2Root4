@@ -61,9 +61,16 @@ def algorithm(titles = {}):
             'excitingPassD':thisLeague.characteristic_ranking("Pass Defense",True,True,True),
             'excitingRunD':thisLeague.characteristic_ranking("Rush Defense",True,True,True)
         }
+        choicesString = {
+            'excitingPassO':"Exciting to Watch Passing Offenses",
+            'excitingRunO':"Exciting to Watch Run Offenses",
+            'excitingPassD':"Exciting to Watch Passing Defenses",
+            'excitingRunD':"Exciting to Watch Run Defenses"
+
+        }
         option = str(request.form['style'])
 
-        title = "Top 5: "
+        title = "Top 5 "+choicesString[option]+": "
         results = choices[option]
 
         for num in range(0,5):
