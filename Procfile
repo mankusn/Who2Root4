@@ -1,1 +1,1 @@
-web: gunicorn my_app_name.wsgi
+web: gunicorn sleepy-sands-98003.wsgi
