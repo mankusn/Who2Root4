@@ -9,6 +9,6 @@ How to set up:
 
 Download this repository
 
-Make sure numpy is installed and you are running python 2.7
+Make sure numpy and flask is installed and you are running python 2.7
 
-Run the Algorithm.py with the command `python Algorithm.py` to get a sample of our recommendations and rankings.
+Run the Algorithm.py with the command `python Algorithm.py` and access the webpage from you local port.
