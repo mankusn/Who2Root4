@@ -70,7 +70,7 @@ def algorithm(titles = {}):
         }
         option = str(request.form['style'])
 
-        title = "Top 5 "+choicesString[option]+": "
+        title = "Top 5 "+choicesString[option]+" in the " +thisLeague.league+": "
         results = choices[option]
 
         for num in range(0,5):
